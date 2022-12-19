@@ -6,11 +6,11 @@ import (
 )
 
 func ValidationFieldHook(td *ast.Definition, fd *ast.FieldDefinition, f *modelgen.Field) (*modelgen.Field, error) {
-	c := fd.Directives.ForName("validation")
+	c := fd.Directives.ForName("constraint")
 	if c != nil {
-		formatConstraint := c.Arguments.ForName("format")
-		if formatConstraint != nil {
-			f.Tag += " validate:" + formatConstraint.Value.String()
+		maxConstraint := c.Arguments.ForName("max")
+		if maxConstraint != nil {
+			f.Tag += " validate:\"max=" + maxConstraint.Value.String() + "\""
 		}
 	}
 	return f, nil

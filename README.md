@@ -5,7 +5,7 @@
 # Generate GraphQL code
 
 ```
-go run ./cmd/gqlgenerate
+go run ./cmd/gqlgenerate/main.go
 ```
 
 # Run

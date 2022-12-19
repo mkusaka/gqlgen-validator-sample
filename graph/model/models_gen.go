@@ -3,15 +3,15 @@
 package model
 
 type NewTodo struct {
-	Text           string          `json:"text" validate:"required,lte=10"`
-	UserID         string          `json:"userId" validate:"required"`
+	Text           string          `json:"text" validate:"max=1"`
+	UserID         string          `json:"userId" validate:"max=1"`
 	RepeatEveryDay *RepeatEveryDay `json:"repeatEveryDay"`
 }
 
 type RepeatEveryDay struct {
-	Days     int    `json:"days" validate:"required,gte=1,lte=366"`
-	Time     string `json:"time" validate:"required,HH:mm"`
-	Timezone string `json:"timezone" validate:"required,timezone"`
+	Days     int    `json:"days" validate:"max=1"`
+	Time     string `json:"time" validate:"max=1"`
+	Timezone string `json:"timezone" validate:"max=1"`
 }
 
 type Todo struct {
